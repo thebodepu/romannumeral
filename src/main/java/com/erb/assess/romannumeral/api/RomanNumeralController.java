@@ -28,38 +28,9 @@ public class RomanNumeralController {
      * @return
      */
     @GetMapping("/health")
-    public String sayHello() {
+    public String healthCheck() {
         return "Roman Numeral Service is up and running fine !";
     }
-
-//    @GetMapping("/")
-//    public ResponseEntity<RomanNumeral> romanNumeral(
-//            @RequestParam(name = "query") @Valid @NotNull @DynamicRange Integer input
-//    ) throws Exception {
-//        logger.debug("Query Received for Roman Numeral : {}", input);
-//
-////        if (number < RomanNumeralService.MIN_ALLOWED_INPUT || number > RomanNumeralService.MAX_ALLOWED_INPUT) {
-////            throw new InvalidInputException(
-////                    String.format("Invalid Input Data Range : provided 'query' '%d' number is out of range [%d, %d].",
-////                            number,
-////                            RomanNumeralService.MIN_ALLOWED_INPUT,
-////                            RomanNumeralService.MAX_ALLOWED_INPUT)
-////            );
-////        }
-//
-//        RomanNumeral romanNumeral = null;
-////        try {
-//            romanNumeral = romanNumeralService.generateRomanNumeralForNumber(new RomanNumeral(input));
-////        } catch (InvalidInputException e) {
-////            return ResponseEntity.badRequest().build();
-////        }
-//
-//
-//        logger.debug("Response - Roman Numeral Result: {}", romanNumeral);
-//
-//        return ResponseEntity
-//                .ok(romanNumeral);
-//    }
 
     /**
      *

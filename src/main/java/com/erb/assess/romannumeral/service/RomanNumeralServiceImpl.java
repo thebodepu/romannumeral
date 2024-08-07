@@ -23,6 +23,9 @@ public class RomanNumeralServiceImpl implements RomanNumeralService {
     public static final int MIN_ALLOWED_INPUT = 1;
     public static final int MAX_ALLOWED_INPUT = 3999;
 
+    public static final int[] PRESET_INTEGERS = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    public static final String[] PRESET_ROMAN_NUMERALS = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+
     private final ObjectMapper objectMapper;
     private final ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
@@ -72,21 +75,10 @@ public class RomanNumeralServiceImpl implements RomanNumeralService {
         logger.debug("Generating Roman numeral from min: {}", min);
         logger.debug("Generating Roman numeral to max: {}", max);
 
-//        MultipleRomanNumerals multipleRomanNumerals = new MultipleRomanNumerals();
-//        List<RomanNumeral> conversions = new ArrayList<RomanNumeral>();
-//
-//        for (int i = min; i <= max; i++) {
-//            conversions.add(numberToRoman(i));
-//        }
-//
-//        multipleRomanNumerals.setConversions(conversions);
-
         MultipleRomanNumerals multipleRomanNumerals = computeMultiples(min, max);
 
         return objectMapper.writeValueAsString(multipleRomanNumerals);
     }
-
-
 
     /**
      *
@@ -133,18 +125,15 @@ public class RomanNumeralServiceImpl implements RomanNumeralService {
      */
     private RomanNumeral numberToRoman(Integer number) {
 
-        // predefine the roman numerals and corresponding numbers
-        int[] presetNumbers = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-        String[] presetRomanNumerals = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
         int index = 0;
         int numberToConvert = number;
 
         StringBuffer romanBuffer = new StringBuffer();
 
         while (number > 0) {
-            if (number >= presetNumbers[index]) {
-                romanBuffer.append(presetRomanNumerals[index]);
-                number -= presetNumbers[index];
+            if (number >= PRESET_INTEGERS[index]) {
+                romanBuffer.append(PRESET_ROMAN_NUMERALS[index]);
+                number -= PRESET_INTEGERS[index];
             } else {
                 index++;
             }
