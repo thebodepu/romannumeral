@@ -1,4 +1,7 @@
 # Getting Started
+This is a REST API to convert a given integer into Roman numeral
+* When input parameter 'query' is present, the equivalent Roman numeral would be returned in JSON format
+* If the input parameters 'min' and 'max' are present, an array of Roman numerals starting from 'min' and upto 'max' would be returned in JSON format
 
 ### Pre-requisites
 * Install JDK v 17

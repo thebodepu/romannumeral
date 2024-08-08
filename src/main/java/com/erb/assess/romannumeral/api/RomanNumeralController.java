@@ -41,12 +41,11 @@ public class RomanNumeralController {
 
     /**
      * Converts given integer into Roman numeral
-     * When input parameter 'query' is present, the equivalent Roman numeral would be returned in JSON format
-     * If the input parameters 'min' and 'max' are present, an array of Roman numerals starting from 'min' and upto '
-     * max' would be return in JSON format
      *
      * @param inputParams
-     * @return
+     * @return When input parameter 'query' is present, the equivalent Roman numeral would be returned in JSON format
+     *          If the input parameters 'min' and 'max' are present, an array of Roman numerals starting from 'min' and upto '
+     *          max' would be return in JSON format
      * @throws Exception
      */
     @GetMapping("/")
@@ -68,7 +67,7 @@ public class RomanNumeralController {
      * Calls respective service method depending on the input parameter
      *
      * @param inputParams
-     * @return
+     * @return JSON response of input and output
      * @throws Exception
      */
     private String convertToRoman(InputParams inputParams) throws Exception {
