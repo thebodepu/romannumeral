@@ -7,6 +7,10 @@ import com.erb.assess.romannumeral.validation.InputValidation;
 
 import java.io.Serializable;
 
+/**
+ * Data object to hold input paramaters required for the API
+ * @author ebodepu 
+ */
 @InputValidation
 public class InputParams implements Serializable {
 

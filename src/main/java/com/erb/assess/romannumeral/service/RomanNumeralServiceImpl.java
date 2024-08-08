@@ -33,8 +33,17 @@ public class RomanNumeralServiceImpl implements RomanNumeralService {
         this.objectMapper = objectMapper;
     }
 
+    /**
+     * Generates Roman Numeral for Given Integer
+     *
+     * @param query
+     * @return
+     * @throws Exception
+     */
     @Override
     public String generateRomanNumeralForNumber(Integer query) throws Exception {
+
+        // validate the input
         if (query == null) {
             logger.error("Null input query");
             throw new InvalidInputException("9991",
@@ -47,13 +56,24 @@ public class RomanNumeralServiceImpl implements RomanNumeralService {
         }
         logger.debug("Generating Roman numeral for number: {}", query);
 
+        // Convert integer into Roman numeral
         RomanNumeral romanNumeral = numberToRoman(query);
 
         return objectMapper.writeValueAsString(romanNumeral);
     }
 
+    /**
+     * Generates an array of Roman numerals starting from 'min' and upto 'max'
+     *
+     * @param min
+     * @param max
+     * @return a JSON array of Roman numerals for given range
+     * @throws Exception
+     */
     @Override
     public String generateRomanNumeralForNumber(Integer min, Integer max) throws Exception {
+
+        // validate the input
         if ((min == null) || (max == null)) {
             logger.error("Invalid input number: min and max are null");
             throw new InvalidInputException("9993",
@@ -75,16 +95,18 @@ public class RomanNumeralServiceImpl implements RomanNumeralService {
         logger.debug("Generating Roman numeral from min: {}", min);
         logger.debug("Generating Roman numeral to max: {}", max);
 
+        // Convert Integers to Roman numerals
         MultipleRomanNumerals multipleRomanNumerals = computeMultiples(min, max);
 
         return objectMapper.writeValueAsString(multipleRomanNumerals);
     }
 
     /**
+     *  Logic to convert all integers into Roman Numerals using parallel execution
      *
      * @param min
      * @param max
-     * @return
+     * @return a JSON array of Roman numerals for given range
      */
     public MultipleRomanNumerals computeMultiples(int min, int max) throws Exception {
         // List to store Future objects
@@ -112,16 +134,17 @@ public class RomanNumeralServiceImpl implements RomanNumeralService {
             throw new Exception("Could not parallel process the conversions. Please check logs.");
         }
 
-        // Sort the all processed results in ascending order
+        // Sort all processed results in ascending order
         conversions.sort((n1, n2) -> Integer.compare(n1.getInput(), n2.getInput()));
 
         return new MultipleRomanNumerals(conversions);
     }
 
     /**
+     * Logic to convert a integer into Roman numeral
      *
      * @param number
-     * @return
+     * @return RomanNumeral object that holds both input and output
      */
     private RomanNumeral numberToRoman(Integer number) {
 

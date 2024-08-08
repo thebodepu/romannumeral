@@ -1,5 +1,9 @@
 package com.erb.assess.romannumeral.exception;
 
+/**
+ * Custom exception to handle Invalid Input
+ * @author ebodepu
+ */
 public class InvalidInputException extends Exception {
 
     private String errorCode;

@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Exception Handler to handle error messages including custom exceptions like InvalidInputException
+ * @author ebodepu
+ */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 

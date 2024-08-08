@@ -1,9 +1,9 @@
 # Getting Started
 
 ### Pre-requisites
-* Install JDK version 17 or above
-* Install Docker Desktop
-* Install Maven 3.9.x
+* Install JDK v 17
+* Install Docker Desktop v 4.32.0
+* Install Maven 3.9.8
 
 ### Build and Run the service
 * Make sure that Docker Desktop is running to execute below commands.
@@ -27,7 +27,7 @@
 For further reference, please consider the following sections:
 * [How do Roman Numerals work?](https://historylearning.com/a-history-of-ancient-rome/history-of-roman-numerals/how-do-roman-numerals-work)
 * [The History of Roman Numerals](https://historylearning.com/a-history-of-ancient-rome/history-of-roman-numerals)
-* [Roman numerals](https://en.wikipedia.org/wiki/Roman_numerals)
+* [Roman numerals - Wiki](https://en.wikipedia.org/wiki/Roman_numerals)
 * [Spring Web](https://docs.spring.io/spring-boot/docs/3.3.2/reference/htmlsingle/index.html#web)
 * [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
 * [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/3.3.2/maven-plugin)

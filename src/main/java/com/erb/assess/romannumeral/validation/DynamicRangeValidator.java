@@ -4,6 +4,10 @@ import org.springframework.beans.factory.annotation.Value;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
+/**
+ * Custom Validator to handle range
+ * @author ebodepu
+ */
 public class DynamicRangeValidator implements ConstraintValidator<DynamicRange, Integer> {
 
     @Value("${validation.roman.number.min}")

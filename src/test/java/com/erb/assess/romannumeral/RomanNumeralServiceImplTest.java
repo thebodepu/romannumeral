@@ -18,6 +18,10 @@ import java.nio.file.Paths;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+/**
+ * Test Class to test service implementation of Roman Numeral conversion
+ * @author ebodepu
+ */
 @SpringBootTest
 public class RomanNumeralServiceImplTest {
 
@@ -37,7 +41,7 @@ public class RomanNumeralServiceImplTest {
 
         // Given
         Integer query = 1;
-        String expectedOutput = readJsonFromFile ("queryOne.json");
+        String expectedOutput = readJsonFromFile("queryOne.json");
 
         // When
         String result = romanNumeralService.generateRomanNumeralForNumber(query);
@@ -53,7 +57,7 @@ public class RomanNumeralServiceImplTest {
         // Given
         Integer min = 1;
         Integer max = 3;
-        String expectedOutput = readJsonFromFile ("minmaxOneToThree.json");
+        String expectedOutput = readJsonFromFile("minmaxOneToThree.json");
 
         // When
         String result = romanNumeralService.generateRomanNumeralForNumber(min, max);
@@ -92,7 +96,7 @@ public class RomanNumeralServiceImplTest {
         Integer max = 100;
 
         // When & Then
-        assertThrows(InvalidInputException.class, () -> romanNumeralService.generateRomanNumeralForNumber(min,max), "Input cannot be out of range");
+        assertThrows(InvalidInputException.class, () -> romanNumeralService.generateRomanNumeralForNumber(min, max), "Input cannot be out of range");
 
     }
 
@@ -102,12 +106,13 @@ public class RomanNumeralServiceImplTest {
         // Given
         Integer min = 1;
         Integer max = null;
-        String expectedOutput = readJsonFromFile ("minmaxOneToThree.json");
+        String expectedOutput = readJsonFromFile("minmaxOneToThree.json");
 
         // When & Then
-        assertThrows(InvalidInputException.class, () -> romanNumeralService.generateRomanNumeralForNumber(min,max), "Input cannot be out of range");
+        assertThrows(InvalidInputException.class, () -> romanNumeralService.generateRomanNumeralForNumber(min, max), "Input cannot be out of range");
 
     }
+
     @Test
     void given_a_null_min_and_valid_max_value_throw_invalid_input_exception() throws Exception {
 
@@ -116,7 +121,7 @@ public class RomanNumeralServiceImplTest {
         Integer max = 2999;
 
         // When & Then
-        assertThrows(InvalidInputException.class, () -> romanNumeralService.generateRomanNumeralForNumber(min,max), "Input cannot be out of range");
+        assertThrows(InvalidInputException.class, () -> romanNumeralService.generateRomanNumeralForNumber(min, max), "Input cannot be out of range");
 
     }
 
@@ -128,12 +133,10 @@ public class RomanNumeralServiceImplTest {
         Integer max = null;
 
         // When & Then
-        assertThrows(InvalidInputException.class, () -> romanNumeralService.generateRomanNumeralForNumber(min,max), "Input cannot be out of range");
-
+        assertThrows(InvalidInputException.class, () -> romanNumeralService.generateRomanNumeralForNumber(min, max), "Input cannot be out of range");
     }
 
     /**
-     *
      * @param fileName
      * @return
      * @throws IOException

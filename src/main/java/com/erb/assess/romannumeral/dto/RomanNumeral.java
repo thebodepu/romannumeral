@@ -3,7 +3,7 @@ package com.erb.assess.romannumeral.dto;
 import java.io.Serializable;
 
 /**
- * Holds data required for a single number to roman record
+ * Holds data required for a single number to roman conversion
  */
 public class RomanNumeral implements Serializable {
 
