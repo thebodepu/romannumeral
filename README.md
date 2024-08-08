@@ -23,19 +23,17 @@ After running the service on Docker, you can validate the service using below en
 * When input parameter 'query' is present, the equivalent Roman numeral would be returned in JSON format
 * If the input parameters 'min' and 'max' are present, an array of Roman numerals starting from 'min' and upto 'max' would be returned in JSON format
 * Please note that the single parameter 'query' and range parameters 'min' & 'max' or mutually exclusive.
-<br />
 * How to check if the webservice is running
   * http://localhost:8080/romannumeral/health
 * Endpoint to convert integer to Roman numeral
   * http://localhost:8080/romannumeral?query={integer}
     * e.g., http://localhost:8080/romannumeral?query=1
       * response :
-        ```json 
+        ```json
         {
-        "input": 1,
-        "output": "I"
+          "input" : 1,
+          "output" : "I"
         }
-
 * Endpoint to get Roman numeral for a range of numbers
   * http://localhost:8080/romannumeral?min={integer}&max={integer}
     * e.g., http://localhost:8080/romannumeral?min=1&max=3
@@ -52,7 +50,7 @@ After running the service on Docker, you can validate the service using below en
           "input" : 3,
           "output" : "III"
           } ]
-          }
+        }
 
 How to run the Unit Tests
 * Open a terminal and go to the root directory of the project
