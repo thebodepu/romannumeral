@@ -48,6 +48,10 @@ Testing Methodology
 * Wrote unit tests for service class using JUnit and Mockito
 * Used Postman to do the end-to-end testing
 
+### Error Handling
+* Handled HTTP errors as per RESTful principles
+* Added Custom exception class and Global Error Handler to handle Invalid Input. e.g, Negative [TestCase](docs/MinMax_Negative_Testcase.png)
+
 ### Package Structure
 ├── Dockerfile <br />
 ├── src/main/java/com/erb/assess/romannumeral <br />
