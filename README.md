@@ -16,7 +16,8 @@ This is a REST API to convert a given integer into Roman numeral
 * Run the service on Docker
    * <code>docker run -p 8080:8080 romannumeral</code>
 
-### Validate the service using below endpoints
+### Testing
+Validate the service using below endpoints :
 * Check if the webservice is running
   * http://localhost:8080/romannumeral/health
 * Endpoint to convert integer to Roman numeral
@@ -25,6 +26,11 @@ This is a REST API to convert a given integer into Roman numeral
 * Endpoint to get Roman numeral for a range of numbers
   * http://localhost:8080/romannumeral?min={integer}&max={integer}
     * e.g., http://localhost:8080/romannumeral?min=1&max=3
+
+To run the Unit Tests :
+* Open a terminal and go to the root directory of the project
+* Run maven test
+  * <code>mvn clean test</code>
 
 ### Reference Documentation
 For further reference, please consider the following sections:
