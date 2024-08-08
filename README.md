@@ -6,9 +6,9 @@ This is a REST API to convert a given integer into Roman numeral
 Note: This service is designed to run within a Docker container.
 
 ### Pre-requisites
-* Install [Java 17](https://www.oracle.com/java/technologies/downloads/#java17) or later
-* Install [Docker](https://docs.docker.com/installation/#installation)
-* Install [Maven 3.9.x](https://maven.apache.org/download.cgi)
+* [Docker](https://docs.docker.com/installation/#installation) 
+* [Java 17](https://www.oracle.com/java/technologies/downloads/#java17)  
+* [Maven 3.9.x](https://maven.apache.org/download.cgi) 
 
 ### Build and Run the service
 * Make sure that Docker is running to execute below commands.
@@ -29,10 +29,13 @@ After running the service on Docker, you can validate the service using below en
   * http://localhost:8080/romannumeral?min={integer}&max={integer}
     * e.g., http://localhost:8080/romannumeral?min=1&max=3
 
-To run the Unit Tests :
+How to run the Unit Tests
 * Open a terminal and go to the root directory of the project
-* Run maven test
+* Run maven test using below command
   * <code>mvn clean test</code>
+
+#### End to End Test and Unit Test Reports
+Please refer to [Test Reports](docs/TestReport.md)
 
 ### Engineering and Test Methodology
 Engineering Methodology
