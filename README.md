@@ -3,13 +3,15 @@ This is a REST API to convert a given integer into Roman numeral
 * When input parameter 'query' is present, the equivalent Roman numeral would be returned in JSON format
 * If the input parameters 'min' and 'max' are present, an array of Roman numerals starting from 'min' and upto 'max' would be returned in JSON format
 
+Note: This service is designed to run within a Docker container.
+
 ### Pre-requisites
-* Install JDK v 17
-* Install Docker Desktop v 4.32.0
-* Install Maven 3.9.8
+* Install [Java 17](https://www.oracle.com/java/technologies/downloads/#java17) or later
+* Install [Docker](https://docs.docker.com/installation/#installation)
+* Install [Maven 3.9.x](https://maven.apache.org/download.cgi)
 
 ### Build and Run the service
-* Make sure that Docker Desktop is running to execute below commands.
+* Make sure that Docker is running to execute below commands.
 * Open a terminal and go to the root directory of the project
 * Build docker image using below command
    * <code>docker build -t romannumeral .</code>
@@ -32,27 +34,32 @@ To run the Unit Tests :
 * Run maven test
   * <code>mvn clean test</code>
 
-### Technologies Used
-* SpringBoot for developing the REST API
-* JUnit for testing framework
-* Maven for build
+### Engineering and Test Methodology
+Engineering Methodology
+* Identified the key functionalities defined in the assessment document
+* Architected the API using RESTful principles
+* Set up the SpringBoot project structure
+* Implemented the RESTful endpoints using SpringBoot. [Package Structure](README.md#package-structure) listed below.
 
-### Package Layout
-├── Dockerfile <br>
-├── src/main/java/com/erb/assess/romannumeral <br>
-│   ├──dto <br>
-│   ├──config <br>
-│   ├──api <br>
-│   ├──service <br>
-│   ├──exception <br>
-│   ├──validation <br>
-├── src/main/resources <br>
-│   ├──application.properties <br>
-├── src/test/java/com/erb/assess/romannumeral <br>
-├── src/test/resources <br>
-│   ├──queryOne.json <br>
-│   ├──minmaxOneToThree.json <br>
+Testing Methodology
+* Wrote unit tests for service class using JUnit and Mockito
+* Used Postman to do the end-to-end testing
 
+### Package Structure
+├── Dockerfile <br />
+├── src/main/java/com/erb/assess/romannumeral <br />
+│   ├──dto <br />
+│   ├──config <br />
+│   ├──api <br />
+│   ├──service <br />
+│   ├──exception <br />
+│   ├──validation <br />
+├── src/main/resources <br />
+│   ├──application.properties <br />
+├── src/test/java/com/erb/assess/romannumeral <br />
+├── src/test/resources <br />
+│   ├──queryOne.json <br />
+│   ├──minmaxOneToThree.json <br />
 
 ### Reference Documentation
 For further reference, please consider the following sections:
