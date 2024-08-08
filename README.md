@@ -1,7 +1,7 @@
 # Getting Started
-This is a REST API to convert a given integer into Roman numeral
-* When input parameter 'query' is present, the equivalent Roman numeral would be returned in JSON format
-* If the input parameters 'min' and 'max' are present, an array of Roman numerals starting from 'min' and upto 'max' would be returned in JSON format
+This RESTful web service converts a given integer into its Roman numeral equivalent. 
+* It supports conversions for both individual numbers and ranges of numbers. 
+* The service can handle numbers within the range of 1 to 3999.
 
 Note: This service is designed to run within a Docker container.
 
@@ -19,15 +19,40 @@ Note: This service is designed to run within a Docker container.
    * <code>docker run -p 8080:8080 romannumeral</code>
 
 ### Testing
-After running the service on Docker, you can validate the service using below endpoints :
-* Check if the webservice is running
+After running the service on Docker, you can validate the service using below endpoints.
+* When input parameter 'query' is present, the equivalent Roman numeral would be returned in JSON format
+* If the input parameters 'min' and 'max' are present, an array of Roman numerals starting from 'min' and upto 'max' would be returned in JSON format
+* Please note that the single parameter 'query' and range parameters 'min' & 'max' or mutually exclusive.
+<br />
+* How to check if the webservice is running
   * http://localhost:8080/romannumeral/health
 * Endpoint to convert integer to Roman numeral
   * http://localhost:8080/romannumeral?query={integer}
     * e.g., http://localhost:8080/romannumeral?query=1
+      * response :
+        ```json 
+        {
+        "input": 1,
+        "output": "I"
+        }
+
 * Endpoint to get Roman numeral for a range of numbers
   * http://localhost:8080/romannumeral?min={integer}&max={integer}
     * e.g., http://localhost:8080/romannumeral?min=1&max=3
+      * response :
+        ```json
+        {
+          "conversions" : [ {
+          "input" : 1,
+          "output" : "I"
+          }, {
+          "input" : 2,
+          "output" : "II"
+          }, {
+          "input" : 3,
+          "output" : "III"
+          } ]
+          }
 
 How to run the Unit Tests
 * Open a terminal and go to the root directory of the project
@@ -42,7 +67,7 @@ Engineering Methodology
 * Identified the key functionalities defined in the assessment document
 * Architected the API using RESTful principles
 * Set up the SpringBoot project structure
-* Implemented the RESTful endpoints using SpringBoot. [Package Structure](README.md#package-structure) listed below.
+* Implemented the RESTful endpoints using SpringBoot
 
 Testing Methodology
 * Wrote unit tests for service class using JUnit and Mockito
@@ -52,7 +77,10 @@ Testing Methodology
 * Handled HTTP errors as per RESTful principles
 * Added Custom exception class and Global Error Handler to handle Invalid Input. e.g, Negative [TestCase](docs/MinMax_Negative_Testcase.png)
 
-### Package Structure
+### Package Layout
+Below is the package structure of this workspace.
+* Application specific configuration like Context Path of the endpoint, range of allowed numbers are configured in 'application.properties'
+
 ├── Dockerfile <br />
 ├── src/main/java/com/erb/assess/romannumeral <br />
 │   ├──dto <br />
@@ -67,6 +95,7 @@ Testing Methodology
 ├── src/test/resources <br />
 │   ├──queryOne.json <br />
 │   ├──minmaxOneToThree.json <br />
+
 
 ### How to Troubleshoot common issues
 * If you encounter access issues while building docker image, make sure that you launch the terminal and/or Docker as an administrator.
