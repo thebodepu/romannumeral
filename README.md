@@ -12,7 +12,7 @@ Note: This service is designed to run within a Docker container.
 
 ### Build and Run the service
 * Make sure that Docker is running to execute below commands.
-* Open a terminal and go to the root directory of the project
+* Open a terminal (command prompt, in case of Windows) and go to the root directory of the project.
 * Build docker image using below command
    * <code>docker build -t romannumeral .</code>
 * Run the service on Docker
@@ -63,6 +63,12 @@ Testing Methodology
 ├── src/test/resources <br />
 │   ├──queryOne.json <br />
 │   ├──minmaxOneToThree.json <br />
+
+### How to Troubleshoot common issues
+* If you encounter access issues while building docker image, make sure that you launch the terminal and/or Docker as an administrator.
+* Docker build command : The DOT (.) at the end of docker build command represents the current directory.
+  * Ref: <code>docker build -t romannumeral .</code>
+  * If you are not running above command from the project root, replace the DOT (.) with path to the project root
 
 ### Reference Documentation
 For further reference, please consider the following sections:
