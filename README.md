@@ -17,7 +17,7 @@ This is a REST API to convert a given integer into Roman numeral
    * <code>docker run -p 8080:8080 romannumeral</code>
 
 ### Testing
-Validate the service using below endpoints :
+After running the service on Docker, you can validate the service using below endpoints :
 * Check if the webservice is running
   * http://localhost:8080/romannumeral/health
 * Endpoint to convert integer to Roman numeral
@@ -31,6 +31,28 @@ To run the Unit Tests :
 * Open a terminal and go to the root directory of the project
 * Run maven test
   * <code>mvn clean test</code>
+
+### Technologies Used
+* SpringBoot for developing the REST API
+* JUnit for testing framework
+* Maven for build
+
+### Package Layout
+├── Dockerfile <br>
+├── src/main/java/com/erb/assess/romannumeral <br>
+│   ├──dto <br>
+│   ├──config <br>
+│   ├──api <br>
+│   ├──service <br>
+│   ├──exception <br>
+│   ├──validation <br>
+├── src/main/resources <br>
+│   ├──application.properties <br>
+├── src/test/java/com/erb/assess/romannumeral <br>
+├── src/test/resources <br>
+│   ├──queryOne.json <br>
+│   ├──minmaxOneToThree.json <br>
+
 
 ### Reference Documentation
 For further reference, please consider the following sections:
