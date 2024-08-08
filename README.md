@@ -7,7 +7,7 @@ Note: This service is designed to run within a Docker container.
 
 ### Pre-requisites
 * [Docker](https://docs.docker.com/installation/#installation) 
-* [Java 17](https://www.oracle.com/java/technologies/downloads/#java17)  
+* [Java 17](https://www.oracle.com/java/technologies/downloads/#java17)  or later
 * [Maven 3.9.x](https://maven.apache.org/download.cgi) 
 
 ### Build and Run the service
@@ -34,7 +34,7 @@ After running the service on Docker, you can validate the service using below en
           "input" : 1,
           "output" : "I"
         }
-* Endpoint to get Roman numeral for a range of numbers
+* Endpoint to get Roman numerals for a range of numbers
   * http://localhost:8080/romannumeral?min={integer}&max={integer}
     * e.g., http://localhost:8080/romannumeral?min=1&max=3
       * response :
@@ -109,5 +109,4 @@ For further reference, please consider the following sections:
 * [Spring Web](https://docs.spring.io/spring-boot/docs/3.3.2/reference/htmlsingle/index.html#web)
 * [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
 * [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/3.3.2/maven-plugin)
-
 
